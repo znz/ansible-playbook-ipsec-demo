@@ -1,2 +1,3 @@
 ---
 - apt: pkg=racoon
+- copy: src=ipsec-tools.flush.conf dest=/etc/ipsec-tools.conf mode=0755 owner=root group=root
