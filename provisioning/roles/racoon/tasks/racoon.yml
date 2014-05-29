@@ -1,5 +1,5 @@
 ---
 - apt: pkg=racoon
-- copy: src=ipsec-tools.flush.conf dest=/etc/ipsec-tools.conf mode=0755 owner=root group=root
+- template: src=ipsec-tools.conf.j2 dest=/etc/ipsec-tools.conf mode=0755 owner=root group=root
 - template: src=psk.txt.j2 dest=/etc/racoon/psk.txt mode=0600 owner=root group=root
 - template: src=racoon.conf.j2 dest=/etc/racoon/racoon.conf mode=0644 owner=root group=root
