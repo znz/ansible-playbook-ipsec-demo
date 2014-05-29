@@ -28,10 +28,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "vm1" do |vm1|
    vm1.vm.hostname = "vm1"
    vm1.vm.network :private_network, ip: "192.168.50.11"
+   vm1.vm.network :private_network, ip: "192.168.11.11"
   end
 
   config.vm.define "vm2" do |vm2|
    vm2.vm.hostname = "vm2"
    vm2.vm.network :private_network, ip: "192.168.50.12"
+   vm2.vm.network :private_network, ip: "192.168.12.12"
   end
 end

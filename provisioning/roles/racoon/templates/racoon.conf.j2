@@ -1,0 +1,27 @@
+log notify;
+path pre_shared_key "/etc/racoon/psk.txt";
+
+remote {{ your_ip }} {
+	exchange_mode main,aggressive;
+	proposal {
+		encryption_algorithm 3des;
+		hash_algorithm sha1;
+		authentication_method pre_shared_key;
+		dh_group modp1024;
+	}
+	generate_policy off;
+}
+
+sainfo address {{ my_net }}[any] any address {{ your_net }}[any] any {
+	pfs_group modp768;
+	encryption_algorithm 3des;
+	authentication_algorithm hmac_md5;
+	compression_algorithm deflate;
+}
+
+sainfo address {{ my_ip }}[any] any address {{ your_net }}[any] any {
+	pfs_group modp768;
+	encryption_algorithm 3des;
+	authentication_algorithm hmac_md5;
+	compression_algorithm deflate;
+}
