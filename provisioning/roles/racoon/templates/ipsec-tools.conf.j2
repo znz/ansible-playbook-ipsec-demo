@@ -4,3 +4,23 @@
 
 spdflush;
 flush;
+
+spdadd {{ my_net }} {{ your_net }} any -P out ipsec
+	esp/tunnel/{{ my_ip }}-{{ your_ip }}/require;
+
+spdadd {{ your_net }} {{ my_net }} any -P in ipsec
+	esp/tunnel/{{ your_ip }}-{{ my_ip }}/require;
+
+
+spdadd {{ my_ip }} {{ your_net }} any -P out ipsec
+	esp/tunnel/{{ my_ip }}-{{ your_ip }}/require;
+
+spdadd {{ your_net }} {{ my_ip }} any -P in ipsec
+	esp/tunnel/{{ your_ip }}-{{ my_ip }}/require;
+
+
+spdadd {{ my_net }} {{ your_ip }} any -P out ipsec
+	esp/tunnel/{{ my_ip }}-{{ your_ip }}/require;
+
+spdadd {{ your_ip }} {{ my_net }} any -P in ipsec
+	esp/tunnel/{{ your_ip }}-{{ my_ip }}/require;
