@@ -21,3 +21,28 @@ Destination            Cookies                           ST S  V E Created      
 192.168.50.12.500      359f8de96b03a305:5a864a2a495c5835  9 I 10 M 2014-06-02 15:37:52      1
 vagrant@vm1:~$
 ```
+
+## check with tshark
+
+Setup tshark.
+
+```
+$ sudo aptitude install tshark
+$ lv /usr/share/doc/tshark/README.Debian
+$ sudo dpkg-reconfigure wireshark-common
+$ sudo adduser vagrant wireshark
+```
+
+After groups changed, logout and login again.
+
+On a terminal,
+
+```
+$ tshark -i eth1 -V 'port 500'
+```
+
+And the other terminal,
+
+```
+$ ping -c 3 -I eth2 192.168.12.12
+```
