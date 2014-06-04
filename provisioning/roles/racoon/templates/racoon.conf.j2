@@ -8,7 +8,7 @@ remote {{ your_ip }} {
 		hash_algorithm sha1;
 		authentication_method pre_shared_key;
 		dh_group 1;
-		lifetime time 600 sec;
+		lifetime time 86400 sec;
 	}
 	generate_policy off;
 	dpd_delay 5;
@@ -18,12 +18,12 @@ sainfo address {{ my_net }}[any] any address {{ your_net }}[any] any {
 	encryption_algorithm 3des;
 	authentication_algorithm hmac_md5;
 	compression_algorithm deflate;
-	lifetime time 200 sec;
+	lifetime time 28800 sec;
 }
 
 sainfo address {{ my_ip }}[any] any address {{ your_net }}[any] any {
 	encryption_algorithm 3des;
 	authentication_algorithm hmac_md5;
 	compression_algorithm deflate;
-	lifetime time 200 sec;
+	lifetime time 28800 sec;
 }
