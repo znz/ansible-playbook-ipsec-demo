@@ -10,6 +10,7 @@ remote {{ your_ip }} {
 		dh_group modp1024;
 	}
 	generate_policy off;
+	dpd_delay 5;
 }
 
 sainfo address {{ my_net }}[any] any address {{ your_net }}[any] any {
