@@ -1,9 +1,22 @@
 # IPsec demo
 
+## Usage
+
+### Initialize
+
 ```
+% git clone https://github.com/znz/ansible-playbook-ipsec-demo
+% cd ansible-playbook-ipsec-demo
+% git submodule init
+% git submodule update
 % vagrant up
 % vagrant halt
 % vagrant up
+```
+
+### Example session
+
+```
 % vagrant ssh vm1
 vagrant@vm1:~$ ping -I eth2 192.168.12.12
 PING 192.168.12.12 (192.168.12.12) from 192.168.11.11 eth2: 56(84) bytes of data.
@@ -22,7 +35,19 @@ Destination            Cookies                           ST S  V E Created      
 vagrant@vm1:~$
 ```
 
-## check with tshark
+## Network
+
+```
+192.168.11.11 (vm1:eth2)
+       |
+192.168.50.11 (vm1:eth1)
+       |
+192.168.50.12 (vm2:eth1)
+       |
+192.168.12.12 (vm2:eth2)
+```
+
+## Check with tshark
 
 Setup tshark.
 
