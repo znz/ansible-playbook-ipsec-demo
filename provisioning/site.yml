@@ -4,4 +4,3 @@
   roles:
   - ja_jp
   - racoon
-- include: ../ansible-playbook-passenger/provisioning/notify.yml
